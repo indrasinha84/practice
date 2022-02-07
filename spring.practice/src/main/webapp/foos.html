@@ -1,0 +1,21 @@
+<a class="navbar-brand" th:href="@{/foos/}">Spring OAuth Client Thymeleaf -1</a>
+Hi, <span sec:authentication="name">preferred_username</span>   
+    
+<h1>All Foos:</h1>
+<table>
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Name</td>                    
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:if="${foos.empty}">
+      <td colspan="4">No foos</td>
+    </tr>
+    <tr th:each="foo : ${foos}">
+      <td><span th:text="${foo.id}"> ID </span></td>
+      <td><span th:text="${foo.name}"> Name </span></td>                    
+    </tr>
+  </tbody>
+</table>
