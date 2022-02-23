@@ -9,6 +9,8 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Phaser;
 import java.util.concurrent.Semaphore;
 
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+
 public class CheckConcurrencyUtils {
 
 	public static void main(String[] args) {
@@ -25,8 +27,8 @@ public class CheckConcurrencyUtils {
 		ExecutorService fjp = Executors.newWorkStealingPool(10);
 //		fjp.execute(null);
 		ExecutorService ctp = Executors.newCachedThreadPool();
-		ExecutorService ftp = Executors.newFixedThreadPool(5);
-		ExecutorService schtp =  Executors.newScheduledThreadPool(1);
+		ExecutorService ftp = Executors.newFixedThreadPool(10);
+		ExecutorService schtp = Executors.newScheduledThreadPool(1);
 		ExecutorService stp = Executors.newSingleThreadScheduledExecutor();
 	}
 
